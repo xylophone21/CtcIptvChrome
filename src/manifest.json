@@ -9,7 +9,7 @@
   	{
     	"matches": ["http://*/*"],
     	"js": ["js_injector.js"],
-    	"run_at": "document_end"
+    	"run_at": "document_start"
 	}
   ]
 }
