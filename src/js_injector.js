@@ -8,3 +8,5 @@ function injectJs(link) {
 }
 
 injectJs(chrome.extension.getURL('ctc_iptv.js'));
+injectJs(chrome.extension.getURL('dessrc.js'));
+injectJs(chrome.extension.getURL('md5.js'));
