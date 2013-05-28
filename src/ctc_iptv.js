@@ -76,7 +76,7 @@ function buildpasswd() {
 
 
 Authentication.CTCSetConfig = function(key,value) {	
-	console.log("set "+key+"="+value);
+	console.log("set [[["+key+"]]]=[[["+value+"]]]");
 	iptvcfg[key] = value;
 };
 
@@ -86,7 +86,7 @@ Authentication.CTCGetConfig = function(key) {
 	if (iptvcfg[key] != undefined) {
 		value = iptvcfg[key];
 	}
-	console.log("get "+key+"="+value);
+	console.log("get [[["+key+"]]]=[[["+value+"]]]");
 	return value;
 };
 
@@ -110,3 +110,12 @@ Authentication.CTCGetAuthInfo = function(EncryptToken) {
 Authentication.CTCStartUpdate = function() {
 	console.log("CTCStartUpdate");
 }
+
+
+function MediaPlayer() {
+	this.leaveChannel = new function() {
+		console.log("MediaPlayer.leaveChannel");
+	}
+}
+
+console.log("loaded");

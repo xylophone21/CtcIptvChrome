@@ -4,12 +4,12 @@
   "version": "2.2.0",
   "description": "Browser CTC IPTV pages via Chrome",
   "permissions": [ "tabs", "http://*/*"],
-  "web_accessible_resources": ["ctc_iptv.js","dessrc.js","md5.js"],
   "content_scripts": [
   	{
     	"matches": ["http://*/*"],
     	"js": ["js_injector.js"],
-    	"run_at": "document_start"
+    	"run_at": "document_start",
+      "all_frames": true
 	}
   ]
 }
