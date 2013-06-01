@@ -1,15 +1,16 @@
 var Authentication = new Object();
 
-var iptvcfg = {
-	//inter keys
-	"_passwd"		: "888888",
-	"_passwdMd5"	: true,
-	"_ip"			: "172.168.5.16",
+var default_iptvcfg = {
+	"_version"		: 3,  //added this value to force reload
 
-	//keys for out
-	"UserID"		: "088820081217001",
-	"STBID"			: "00101000000132A0201300076360c3c3",
-	"mac"			: "00:07:63:60:c3:c3",
+	//You must at least fill below items and re-run it
+	//"UserID"		: "",
+	//"_passwd"		: "",
+	//"STBID"			: "",
+	//"mac"			: "",
+	
+	"_passwdMd5"	: true,
+	"_ip"			: "192.168.1.1",
 	"SupportHD"		: 1,
 	"STBType"		: "EC2108B_pub",
 	"STBVersion"	: "SBox8600",
@@ -21,6 +22,16 @@ var iptvcfg = {
 	"UserGroupNMB"	: -1,
 	"PackageIDs"	: -1,
 };
+
+var values = localStorage.getItem("iptv_settings");
+var iptvcfg = JSON.parse(values)
+if (iptvcfg == undefined) {
+	console.log("No data,use default_iptvcfg!")
+	iptvcfg = default_iptvcfg;
+}else if(iptvcfg["_version"] != default_iptvcfg["_version"]) {
+	console.log("Version changed "+iptvcfg["_version"]+"->"+default_iptvcfg["_version"]+",use default_iptvcfg!")
+	iptvcfg = default_iptvcfg;
+}
 
 function chars_from_hex(inputstr) {
 	var outputstr = '';
@@ -78,6 +89,7 @@ function buildpasswd() {
 Authentication.CTCSetConfig = function(key,value) {	
 	console.log("set [[["+key+"]]]=[[["+value+"]]]");
 	iptvcfg[key] = value;
+	window.localStorage.setItem("iptv_settings",JSON.stringify(iptvcfg));
 };
 
 
@@ -117,5 +129,3 @@ function MediaPlayer() {
 		console.log("MediaPlayer.leaveChannel");
 	}
 }
-
-console.log("loaded");
