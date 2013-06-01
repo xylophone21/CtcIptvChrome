@@ -29,8 +29,8 @@ def injectJs(fd,filename):
 	
 def main():
 	fd = openInjector()
-	#injectJs(fd,"md5.js")
-	#injectJs(fd,"dessrc.js")
+	injectJs(fd,"md5.js")
+	injectJs(fd,"dessrc.js")
 	injectJs(fd,"ctc_iptv.js")
 	closeInjector(fd)
 

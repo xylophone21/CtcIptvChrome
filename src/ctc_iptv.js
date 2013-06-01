@@ -1,36 +1,10 @@
 var Authentication = new Object();
 
-var default_iptvcfg = {
-	"_version"		: 3,  //added this value to force reload
-
-	//You must at least fill below items and re-run it
-	//"UserID"		: "",
-	//"_passwd"		: "",
-	//"STBID"			: "",
-	//"mac"			: "",
-	
-	"_passwdMd5"	: true,
-	"_ip"			: "192.168.1.1",
-	"SupportHD"		: 1,
-	"STBType"		: "EC2108B_pub",
-	"STBVersion"	: "SBox8600",
-	"templateName"	: "defaultwebkit",
-	"boot_version"	: 86122334,
-	"hardware_type"	: "EC2108B_pub",
-	"ConnectType"	: 2,
-	"areaid"		: 860755,
-	"UserGroupNMB"	: -1,
-	"PackageIDs"	: -1,
-};
-
 var values = localStorage.getItem("iptv_settings");
 var iptvcfg = JSON.parse(values)
 if (iptvcfg == undefined) {
-	console.log("No data,use default_iptvcfg!")
-	iptvcfg = default_iptvcfg;
-}else if(iptvcfg["_version"] != default_iptvcfg["_version"]) {
-	console.log("Version changed "+iptvcfg["_version"]+"->"+default_iptvcfg["_version"]+",use default_iptvcfg!")
-	iptvcfg = default_iptvcfg;
+	console.log("Warning: No data found, Please do config in Options page first.")
+	iptvcfg = new Object();
 }
 
 function chars_from_hex(inputstr) {
@@ -122,7 +96,6 @@ Authentication.CTCGetAuthInfo = function(EncryptToken) {
 Authentication.CTCStartUpdate = function() {
 	console.log("CTCStartUpdate");
 }
-
 
 function MediaPlayer() {
 	this.leaveChannel = new function() {
