@@ -26,9 +26,7 @@ def injectJs(fd,filename):
 	text = text.replace('"','\\"')
 	text = text.replace('\n','\\n')
 	fd.write("injectJs('"+text+"');\n\n")
-
-
-
+	
 def main():
 	fd = openInjector()
 	injectJs(fd,"md5.js")
