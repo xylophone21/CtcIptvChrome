@@ -98,7 +98,22 @@ Authentication.CTCStartUpdate = function() {
 }
 
 function MediaPlayer() {
-	this.leaveChannel = new function() {
-		console.log("MediaPlayer.leaveChannel");
-	}
+	this.initMediaPlayer = function() {console.log("initMediaPlayer");}
+	this.leaveChannel = function() {console.log("leaveChannel");}
+	this.setSingleMedia = function() {console.log("setSingleMedia");}
+	this.setAllowTrickmodeFlag = function() {console.log("setAllowTrickmodeFlag");}
+	this.setNativeUIFlag = function() {console.log("setNativeUIFlag");}
+	this.setMuteUIFlag = function() {console.log("setMuteUIFlag");}
+	this.setAudioVolumeUIFlag = function() {console.log("setAudioVolumeUIFlag");}
+	this.setAudioTrackUIFlag = function() {console.log("setAudioTrackUIFlag");}
+	this.setVideoDisplayArea = function() {console.log("setVideoDisplayArea");}
+	this.setVideoDisplayMode = function() {console.log("setVideoDisplayMode");}
+	this.refreshVideoDisplay = function() {console.log("refreshVideoDisplay");}
+	this.joinChannel = function() {console.log("joinChannel");}
+	this.stop = function() {console.log("stop ");}
+	this.setMuteFlag = function() {console.log("setMuteFlag");}
+	this.getMuteFlag = function() {console.log("getMuteFlag");}
+	this.getNativePlayerInstanceID = function() {console.log("getNativePlayerInstanceID");}
+	this.getVolume = function() {console.log("getVolume");}
+	this.setVolume = function() {console.log("setVolume");}
 }
