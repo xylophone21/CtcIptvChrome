@@ -15,6 +15,14 @@
     	"js": ["cs_config.js","js_injector.js"],
     	"run_at": "document_start",
       "all_frames": true
-	}
+	  },
+
+    //guangdong IPTV address
+    {
+      "matches": ["http://125.88.69.34/*"],
+      "js": ["gdiptv_injector.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
   ]
 }

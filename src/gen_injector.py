@@ -1,7 +1,6 @@
 import sys
 
-s_injector_header = """
-function injectJs(text) {
+s_injector_header = """function injectJs(text) {
 	var scr = document.createElement('script');
 	scr.type="text/javascript";
 	scr.textContent=text;
@@ -10,8 +9,8 @@ function injectJs(text) {
 
 """
 
-def openInjector():
-	fd = open(sys.path[0]+"/js_injector.js","w")
+def openInjector(filename):
+	fd = open(sys.path[0]+"/"+filename,"w")
 	fd.write(s_injector_header)
 	return fd
 
@@ -28,10 +27,14 @@ def injectJs(fd,filename):
 	fd.write("injectJs('"+text+"');\n\n")
 	
 def main():
-	fd = openInjector()
+	fd = openInjector("js_injector.js")
 	injectJs(fd,"md5.js")
 	injectJs(fd,"dessrc.js")
 	injectJs(fd,"ctc_iptv.js")
+	closeInjector(fd)
+
+	fd = openInjector("gdiptv_injector.js")	
+	injectJs(fd,"gdiptv_fixer.js")
 	closeInjector(fd)
 
 if __name__ == '__main__':

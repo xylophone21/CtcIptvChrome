@@ -1,4 +1,3 @@
-
 function injectJs(text) {
 	var scr = document.createElement('script');
 	scr.type="text/javascript";
