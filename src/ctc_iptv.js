@@ -1,5 +1,3 @@
-var Authentication = new Object();
-
 var values = localStorage.getItem("iptv_settings");
 var iptvcfg = JSON.parse(values)
 if (iptvcfg == undefined) {
@@ -59,6 +57,7 @@ function buildpasswd() {
 	}
 }
 
+var Authentication = new Object();
 
 Authentication.CTCSetConfig = function(key,value) {	
 	console.log("set [[["+key+"]]]=[[["+value+"]]]");
@@ -116,4 +115,12 @@ function MediaPlayer() {
 	this.getNativePlayerInstanceID = function() {console.log("getNativePlayerInstanceID");}
 	this.getVolume = function() {console.log("getVolume");}
 	this.setVolume = function() {console.log("setVolume");}
+	this.setProgressBarUIFlag = function() {console.log("setProgressBarUIFlag");}
+	this.setChannelNoUIFlag = function() {console.log("setChannelNoUIFlag");}
+}
+
+var iPanel = new Object();
+
+iPanel.ioctlRead = function (key) {
+	return Authentication.CTCGetConfig(key);
 }

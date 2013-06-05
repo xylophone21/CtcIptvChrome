@@ -19,7 +19,7 @@
 
     //guangdong IPTV address
     {
-      "matches": ["http://125.88.69.34/*"],
+      "matches": ["http://*/*"],
       "js": ["gdiptv_injector.js"],
       "run_at": "document_start",
       "all_frames": true

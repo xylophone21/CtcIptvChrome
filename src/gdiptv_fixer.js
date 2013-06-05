@@ -8,7 +8,7 @@ document.onkeydown = function(event) {
 	if(!keycode) keycode=event.keyCode;
 
 	if(keycode == LEFT || keycode == RIGHT || keycode == UP || keycode == DOWN) {
-		document.onkeypress(event)
+		return document.onkeypress(event)
 	}
 
 
